@@ -245,6 +245,7 @@
     "uiPlayground": "UI Playground",
     "faceLibrary": "Face Library",
     "classification": "Classification",
+    "chat": "Chat",
     "user": {
       "title": "User",
       "account": "Account",
