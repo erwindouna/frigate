@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 from pydantic import ConfigDict, Field
 
@@ -128,9 +128,10 @@ class SemanticSearchConfig(FrigateBaseModel):
     reindex: Optional[bool] = Field(
         default=False, title="Reindex all tracked objects on startup."
     )
-    model: Optional[SemanticSearchModelEnum] = Field(
+    model: Optional[Union[SemanticSearchModelEnum, str]] = Field(
         default=SemanticSearchModelEnum.jinav1,
-        title="The CLIP model to use for semantic search.",
+        title="The CLIP model or GenAI provider name for semantic search.",
+        description="Use 'jinav1', 'jinav2' for ONNX models, or a GenAI config key (e.g. 'default') when that provider has the embeddings role.",
     )
     model_size: str = Field(
         default="small", title="The size of the embeddings model used."
